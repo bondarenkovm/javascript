@@ -697,24 +697,50 @@
 // console.log(new Car({ brand: 'Nissan', model: 'Qashqai', price: 20000 }));
 
 //--------------------5 модуль 7/20------------------------------------------
-class Car {
-  constructor({ brand, model, price }) {
-    // brand;
-    // model;
-    // price;
-    this.brand = brand;
-    this.model = model;
-    this.price = price;
+// class Car {
+//   constructor({ brand, model, price }) {
+//     // brand;
+//     // model;
+//     // price;
+//     this.brand = brand;
+//     this.model = model;
+//     this.price = price;
+//   }
+
+//   getPrice() {
+//     return this.price;
+//   }
+
+//   changePrice(newPrice) {
+//     this.price = newPrice;
+//   }
+// }
+
+// console.log(new Car({ brand: 'Nissan', model: 'Qashqai', price: 20000 }));
+// // console.log(getPrice());
+//--------------------5 модуль 10/20------------------------------------------
+
+class Storage {
+  constructor(items) {
+    this.items = items;
+  }
+  getItems() {
+    return this.items;
   }
 
-  getPrice() {
-    return this.price;
+  addItem(newItem) {
+    return this.items.push(newItem);
   }
-
-  changePrice(newPrice) {
-    this.price = newPrice;
+  removeItem(itemToRemove) {
+    const itemsIndex = this.items.indexOf(itemToRemove);
+    this.items.splice(itemsIndex, 1);
   }
 }
 
-console.log(new Car({ brand: 'Nissan', model: 'Qashqai', price: 20000 }));
-console.log(getPrice());
+// Change code above this line
+const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+storage.addItem('Droid');
+console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+storage.removeItem('Prolonger');
+console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
