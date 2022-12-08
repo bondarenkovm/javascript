@@ -720,27 +720,672 @@
 // // console.log(getPrice());
 //--------------------5 модуль 10/20------------------------------------------
 
-class Storage {
-  constructor(items) {
-    this.items = items;
-  }
-  getItems() {
-    return this.items;
-  }
+// class Storage {
+//   constructor(items) {
+//     this.items = items;
+//   }
+//   getItems() {
+//     return this.items;
+//   }
 
-  addItem(newItem) {
-    return this.items.push(newItem);
+//   addItem(newItem) {
+//     return this.items.push(newItem);
+//   }
+//   removeItem(itemToRemove) {
+//     const itemsIndex = this.items.indexOf(itemToRemove);
+//     this.items.splice(itemsIndex, 1);
+//   }
+// }
+
+// // Change code above this line
+// const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
+// storage.addItem('Droid');
+// console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
+// storage.removeItem('Prolonger');
+// console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+
+//--------------------5 модуль 11/20------------------------------------------
+
+// class StringBuilder {
+//   constructor(value) {
+//     this.value = value;
+//   }
+//   getValue() {
+//     return this.value;
+//   }
+
+//   padStart(str) {
+//     this.value = str + this.value;
+//   }
+
+//   padEnd(str) {
+//     this.value = this.value + str;
+//   }
+
+//   padBoth(str) {
+//     this.value = str + this.value + str;
+//   }
+// }
+
+// // Change code above this line
+// const builder = new StringBuilder('.');
+// console.log(builder.getValue()); // "."
+// builder.padStart('^');
+// console.log(builder.getValue()); // "^."
+// builder.padEnd('^');
+// console.log(builder.getValue()); // "^.^"
+// builder.padBoth('=');
+// console.log(builder.getValue()); // "=^.^="
+
+//--------------------5 модуль 16/20------------------------------------------
+// class Car {
+//   // Change code below this line
+//   static MAX_PRICE = 50000;
+
+//   #price;
+
+//   constructor({ price }) {
+//     this.#price = price;
+//   }
+
+//   get price() {
+//     return this.#price;
+//   }
+
+//   set price(newPrice) {
+//     if (newPrice <= Car.MAX_PRICE) {
+//       this.#price = newPrice;
+//       // return;
+//     }
+//     // return;
+//     // this.#price = newPrice;
+//   }
+//   // Change code above this line
+// }
+
+// const audi = new Car({ price: 35000 });
+// console.log(audi.price); // 35000
+
+// audi.price = 50000;
+// console.log(audi.price); // 49000
+
+// audi.price = 57001;
+// console.log(audi.price); // 49000
+
+//--------------------5 модуль 17/20------------------------------------------
+// class Car {
+//   static #MAX_PRICE = 50000;
+//   // Change code below this line
+
+//   static checkPrice(price) {
+//     // price > Car.#MAX_PRICE
+//     //   ? 'Error! Price exceeds the maximum'
+//     //   : 'Success! Price is within acceptable limits';
+
+//     if (price > Car.#MAX_PRICE) {
+//       return 'Error! Price exceeds the maximum';
+//     }
+//     return 'Success! Price is within acceptable limits';
+//   }
+//   // Change code above this line
+//   constructor({ price }) {
+//     this.price = price;
+//   }
+// }
+
+// const audi = new Car({ price: 36000 });
+// const bmw = new Car({ price: 64000 });
+
+// console.log(Car.checkPrice(audi.price)); // "Success! Price is within acceptable limits"
+// console.log(Car.checkPrice(bmw.price));
+
+//--------------------5 модуль 20/20------------------------------------------
+// class User {
+//   email;
+
+//   constructor(email) {
+//     this.email = email;
+//   }
+
+//   get email() {
+//     return this.email;
+//   }
+
+//   set email(newEmail) {
+//     this.email = newEmail;
+//   }
+// }
+// class Admin extends User {
+//   // Change code below this line
+
+//   blacklistedEmails = [];
+//   // static blacklistedEmails = [];
+
+//   static AccessLevel = {
+//     BASIC: 'basic',
+//     SUPERUSER: 'superuser',
+//   };
+
+//   constructor({ email, accessLevel }) {
+//     super(email);
+//     this.accessLevel = accessLevel;
+//     // this.blacklistedEmails = Admin.blacklistedEmails;
+//   }
+
+//   blacklist(email) {
+//     this.blacklistedEmails.push(email);
+//   }
+
+//   isBlacklisted(email) {
+//     return this.blacklistedEmails.includes(email);
+//   }
+
+//   // Change code above this line
+// }
+
+// const mango = new Admin({
+//   email: 'mango@mail.com',
+//   accessLevel: Admin.AccessLevel.SUPERUSER,
+// });
+
+// // console.log(Admin.blacklistedEmails);
+// console.log(mango.email); // "mango@mail.com"
+// console.log(mango.accessLevel); // "superuser"
+
+// mango.blacklist('poly@mail.com');
+
+// console.log(mango.blacklistedEmails); // ["poly@mail.com"]
+// console.log(mango.isBlacklisted('mango@mail.com')); // false
+// console.log(mango.isBlacklisted('poly@mail.com')); // true
+
+//------------------------------------------------------------------------------
+// class User {
+//   static takenEmails = [];
+
+//   static isEmailTaken(email) {
+//     return User.takenEmails.includes(email);
+//   }
+
+//   #email;
+
+//   constructor({ email }) {
+//     this.#email = email;
+//     User.takenEmails.push(email);
+//   }
+// }
+
+// const mango = new User({ email: 'mango@mail.com' });
+
+// console.log(User.takenEmails);
+// console.log(User.isEmailTaken('poly@mail.com'));
+// console.log(User.isEmailTaken('mango@mail.com'));
+// console.log(User.takenEmails);
+
+//---------------------------------this---------------------------------------------
+// function showThis() {
+//   console.log('this in showThis: ', this);
+// }
+
+// Викликаємо у глобальному контексті
+// showThis(); // this in showThis: Window
+// const user = {
+//   username: 'Mango',
+//   showThis() {
+//     console.log('this in showThis: ', this);
+//   },
+// };
+
+// user.showThis();
+
+// const dddd = user.showThis;
+
+// console.log(dddd());
+
+// Записуємо посилання на функцію у властивість об'єкта
+// Зверніть увагу, що це не виклик - немає ()
+// user.showContext = showThis;
+
+// Викликаємо функцію в контексті об'єкта
+// this буде вказувати на поточний об'єкт, в контексті
+// якого здійснюється виклик, а не на глобальний об'єкт.
+// user.showContext(); // this in showThis: {username: "Mango", showContext: ƒ}
+
+//---------------------------------
+// function greetGuest() {
+//   // console.log(`${greeting}, ${this.username}.`);
+//   console.log('this in showThis: ', this);
+// }
+
+// const mango = {
+//   username: 'Манго',
+// };
+// // const poly = {
+// //   username: "Полі",
+// // };
+
+// greetGuest.call(mango); // Ласкаво просимо, Манго.
+// // greetGuest.call(poly, "З прибуттям"); // З прибуттям, Полі.
+
+//---------------------------------Класи---------------------------------------------
+
+// class Car1 {
+//   constructor({ brand, model, price } = {}) {
+//     console.log(this);
+//     this.brand = brand;
+//     this.model = model;
+//     this.price = price;
+//   }
+// }
+// console.dir(Car1);
+// const carInstance = new Car1({ brand: 'Nissan', model: 'Qashqai', price: 20000 });
+// console.log(carInstance);
+//-------------------------------задача---------------------------------------------
+// Example 4 - Нотатки
+// Напиши клас Notes який керує колекцією нотаток у властивості items.
+// Замітка це об'єкт із властивостями text та priority.
+// Додай класу статичну властивість Priority, у якому зберігатиметься об'єкт із пріоритетами.
+
+// {
+//   LOW: 'low',
+//   NORMAL: 'normal',
+//   HIGH: 'high'
+// }
+// Додай методи addNote(note), removeNote(text) та updatePriority(text, newPriority).
+
+// class Notes {
+//   static Priority = {
+//     LOW: 'low',
+//     NORMAL: 'normal',
+//     HIGH: 'high',
+//   };
+//   constructor(arr) {
+//     this.items = arr;
+//   }
+//   addNote(note) {
+//     this.items.push(note);
+//   }
+//   removeNote(text) {
+
+//     console.log(this.item.text === text);
+//     if (this.items.text === text) {
+//     }
+//   }
+//   updatePriority(text, newPriority) {}
+// }
+// const myNotes = new Notes([]);
+
+// myNotes.addNote({ text: 'Моя перша замітка', priority: Notes.Priority.LOW });
+// console.log(myNotes.items);
+
+// myNotes.addNote({
+//   text: 'Моя друга замітка',
+//   priority: Notes.Priority.NORMAL,
+// });
+// console.log(myNotes.items);
+
+// myNotes.removeNote('Моя перша замітка');
+// console.log(myNotes.items);
+
+// // myNotes.updateNote('Моя друга замітка', Notes.Priority.HIGH);
+// // console.log(myNotes.items);
+
+//------------------------------------------------------------------
+// const listWithId = document.querySelector('#menu');
+// listWithId.style.textTransform = 'uppercase';
+// listWithId.style.fontSize = '24px';
+// console.log(listWithId);
+
+// const listWithClass = document.querySelector('.menu');
+// console.log(listWithClass);
+
+// const menuItemsByTagName = document.querySelectorAll('li');
+// console.log(menuItemsByTagName);
+
+// const menuItemsByClass = document.querySelectorAll('.menu-item');
+// console.log(menuItemsByClass);
+
+// const firstMenuItem = document.querySelector('.menu-item');
+// firstMenuItem.style.color = 'tomato';
+// console.log(firstMenuItem);
+
+//-------------------------------ДЗ-6---------------------------------------------
+//-------------------------------Task 1---------------------------------------------
+// const items = document.querySelectorAll('#categories .item');
+// console.log('Number of categories:', items.length);
+// items.forEach(item => {
+//   console.log('Category:', item.firstElementChild.textContent);
+//   console.log('Elements:', item.lastElementChild.children.length);
+// });
+
+// -----------
+//const listEl = document.querySelector('#categories');
+
+// const listItems = listEl.children;
+
+// console.log('Number of categories:', listItems.length);
+// console.log('Category:', listItems[0].firstElementChild.textContent);
+// console.log('Elements:', listItems[0].lastElementChild.children.length);
+// console.log('Category:', listItems[1].firstElementChild.textContent);
+// console.log('Elements:', listItems[1].lastElementChild.children.length);
+// console.log('Category:', listItems[2].firstElementChild.textContent);
+// console.log('Elements:', listItems[2].lastElementChild.children.length);
+
+//-----------------------variant 2
+// const itemEl = document.querySelectorAll('#categories .item');
+// console.log(itemEl.length);
+
+// const titleEl = document.querySelectorAll('.item h2');
+// console.log(titleEl[0].textContent);
+// console.log(titleEl[1].textContent);
+// console.log(titleEl[2].textContent);
+
+// const listEl1 = itemEl[0].querySelectorAll('ul li');
+// console.log(listEl1.length);
+// const listEl2 = itemEl[1].querySelectorAll('ul li');
+// console.log(listEl2.length);
+// const listEl3 = itemEl[2].querySelectorAll('ul li');
+// console.log(listEl3.length);
+//-------------------------------Task 2---------------------------------------------
+// const ingredients = ['Potatoes', 'Mushrooms', 'Garlic', 'Tomatos', 'Herbs', 'Condiments'];
+// const list = document.querySelector('#ingredients');
+// // console.log(list);
+//=============================variant-1=======================
+// const elements = ingredients.map(ingredient => {
+//   const itemEl = document.createElement('li');
+//   itemEl.classList.add('item');
+//   itemEl.textContent = ingredient;
+//   return itemEl;
+// });
+// // console.log(elements);
+
+// list.prepend(...elements);
+
+//=============================variant-2=======================
+// const makeingredients = options => {
+//   return options.map(ingredient => {
+//     const itemEl = document.createElement('li');
+//     itemEl.classList.add('item');
+//     itemEl.textContent = ingredient;
+//     return itemEl;
+//   });
+// };
+// // const elements = makeingredients(ingredients);
+// list.prepend(...makeingredients(ingredients));
+//-------------------------------Task 3---------------------------------------------
+// const images = [
+//   {
+//     url: 'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260',
+//     alt: 'White and Black Long Fur Cat',
+//   },
+//   {
+//     url: 'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260',
+//     alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+//   },
+//   {
+//     url: 'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260',
+//     alt: 'Group of Horses Running',
+//   },
+// ];
+// //width="370" height="370"
+// const list = document.querySelector('.gallery');
+// list.style.display = 'flex';
+// const imagesMarkup = images
+//   .map(
+//     ({ url, alt }) =>
+//       `<li class="gallery__item"><img width="500" height="500" src = '${url}' alt = '${alt}'></li>`
+//   )
+//   .join('');
+// console.log(imagesMarkup);
+// list.insertAdjacentHTML('afterbegin', imagesMarkup);
+//-------------------------------Task 4---------------------------------------------
+
+// const decrementBtn = document.querySelector('[data-action="decrement"]');
+// const incrementBtn = document.querySelector('[data-action="increment"]');
+// const valueEl = document.querySelector('#value');
+
+// let counterValue = 0;
+// const counter = () => (counterValue += 1);
+
+// console.log(decrementBtn);
+// console.log(incrementBtn);
+// console.log(valueEl);
+// incrementBtn.addEventListener('click', () => {
+//   //   counter();
+//   counterValue += 1;
+//   valueEl.textContent = counterValue;
+//   // decrementBtn.style.backgroundСolor = `buttonface`;
+//   // incrementBtn.style.backgroundColor = `green`;
+// });
+// decrementBtn.addEventListener('click', () => {
+//   counterValue -= 1;
+//   valueEl.textContent = counterValue;
+//   // incrementBtn.style.backgroundСolor = `buttonface`;
+//   // decrementBtn.style.backgroundColor = `red`;
+// });
+//-------------------------------Task 5---------------------------------------------
+
+// const refs = {
+//   input: document.querySelector('#name.input'),
+//   output: document.querySelector('#name-output'),
+// };
+
+// const input = document.querySelector('#name-input');
+// const output = document.querySelector('#name-output');
+
+// input.addEventListener('input', onInputChange);
+// // console.log(output.textContent);
+// function onInputChange(event) {
+//   if (event.currentTarget.value) {
+//     return (output.textContent = event.currentTarget.value);
+//   }
+//   output.textContent = 'Anonymous';
+// }
+//===========--2--=========
+// input.addEventListener('input', event => {
+//   return event.currentTarget.value
+//     ? (output.textContent = event.currentTarget.value)
+//     : (output.textContent = 'Anonymous');
+// });
+
+// function onInputChange(event) {
+//   return event.currentTarget.value
+//     ? (output.textContent = event.currentTarget.value)
+//     : (output.textContent = 'Anonymous');
+// }
+
+//-------------------------------Task 6---------------------------------------------
+// const input = document.querySelector('[data-length="6"]');
+// // console.log(input);
+// // console.log(input.dataset.length);
+
+// input.addEventListener('blur', onInputBlur);
+
+// function onInputBlur(event) {
+//   //   console.log(event.currentTarget.value.length);
+//   //   console.log(event.currentTarget.value.length == input.dataset.length);
+//   input.classList.add('invalid');
+//   input.classList.remove('valid');
+//   if (event.currentTarget.value.length == input.dataset.length) {
+//     input.classList.remove('invalid');
+//     input.classList.add('valid');
+//   }
+// }
+
+//-------------------------------Task 7---------------------------------------------
+// const inputEl = document.querySelector('#font-size-control');
+// const output = document.querySelector('#text');
+
+// inputEl.addEventListener('input', () => {
+//   console.log(event.currentTarget.value);
+
+//   output.style.fontSize = `${inputEl.value}px`;
+// });
+
+//-------------------------------Task 8---------------------------------------------
+// const formEl = document.querySelector('.login-form');
+// // const emailEl = document.querySelector('.email');
+// // const passwordEl = document.querySelector('.password');
+// // const btn = document.querySelector('button');
+// // console.log(formEl);
+// // console.log(btn);
+
+// formEl.addEventListener('submit', onFormSubmit);
+// function onFormSubmit(event) {
+//   event.preventDefault();
+//   const formElenents = event.currentTarget.elements;
+//   //   console.dir(formElenents);
+//   if (!formElenents.email.value || !formElenents.password.value) {
+//     alert('Заповни свої дані!!!');
+//   }
+//   const email = formElenents.email.value;
+//   const password = formElenents.password.value;
+
+//   const formData = {
+//     email,
+//     password,
+//   };
+//   console.log(formData);
+//   formEl.reset();
+// }
+//-------------------------------------
+// const formEl = document.querySelector('.login-form');
+
+// formEl.addEventListener('submit', onFormSubmit);
+// function onFormSubmit(event) {
+//   event.preventDefault();
+//   const { email, password } = event.currentTarget.elements;
+//   if (!email.value || !password.value) {
+//     alert('Заповни свої дані!!!');
+//   }
+//   const userEmail = email.value;
+//   const userPasswords = password.value;
+
+//   const formData = {
+//     userEmail,
+//     userPasswords,
+//   };
+//   console.log(formData);
+//   formEl.reset();
+// }
+
+//-------------------------------Task 9---------------------------------------------
+// const btn = document.querySelector('.change-color');
+// const backgroundColor = document.querySelector('.color');
+
+// btn.addEventListener('click', () => {
+//   document.body.style.backgroundColor = getRandomHexColor();
+//   backgroundColor.textContent = document.body.style.backgroundColor;
+//   // backgroundColor.textContent = getRandomHexColor();
+// });
+
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
+//-------------------------------Task 10---------------------------------------------
+const inputEl = document.querySelector('input');
+const btnCreate = document.querySelector('[data-create]');
+const btnDestroy = document.querySelector('[data-destroy]');
+const boxesEl = document.querySelector('#boxes');
+
+// let numberInput = 0;
+
+// inputEl.addEventListener('input', () => {
+//   numberInput = Number(inputEl.value);
+// });
+
+btnCreate.addEventListener('click', () => {
+  createBoxes(inputEl.value);
+});
+
+btnDestroy.addEventListener('click', destroyBoxes);
+
+function createBoxes(amount) {
+  destroyBoxes();
+  const div = [];
+
+  for (let i = 1; i <= amount; i += 1) {
+    const divEl = document.createElement('div');
+    divEl.style.width = `${20 + 10 * i}px`;
+    divEl.style.height = `${20 + 10 * i}px`;
+    divEl.style.backgroundColor = `${getRandomHexColor()}`;
+    div.push(divEl);
   }
-  removeItem(itemToRemove) {
-    const itemsIndex = this.items.indexOf(itemToRemove);
-    this.items.splice(itemsIndex, 1);
-  }
+  boxesEl.prepend(...div);
 }
 
-// Change code above this line
-const storage = new Storage(['Nanitoids', 'Prolonger', 'Antigravitator']);
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator"]
-storage.addItem('Droid');
-console.log(storage.getItems()); // ["Nanitoids", "Prolonger", "Antigravitator", "Droid"]
-storage.removeItem('Prolonger');
-console.log(storage.getItems()); // ["Nanitoids", "Antigravitator", "Droid"]
+function destroyBoxes() {
+  boxesEl.innerHTML = '';
+  inputEl.value = '';
+  // numberInput = 0;
+}
+
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
+
+//==========================================================
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
+// const controlsEl = document.querySelector('#controls');
+// const inputEl = controlsEl.firstElementChild;
+// const createBtn = document.querySelector('button[data-create]');
+// const destroyBtn = document.querySelector('button[data-destroy]');
+// const boxEl = document.querySelector('#boxes');
+
+// inputEl.addEventListener('focus', destroyBoxes);
+// createBtn.addEventListener('click', () => {
+//   createBoxes(inputEl.value);
+// });
+// function createBoxes(amount) {
+//   // inputEl.value = '';
+//   let boxes = '';
+//   for (let i = 1, j = 30; i <= amount; i += 1, j += 10) {
+//     boxes += `<div style="width: ${j}px; height: ${j}px; background-color: ${getRandomHexColor()}"></div>`;
+//   }
+//   boxEl.insertAdjacentHTML('beforeend', boxes);
+// }
+
+// function destroyBoxes() {
+//   boxEl.innerHTML = '';
+//   inputEl.value = '';
+// }
+// destroyBtn.addEventListener('click', destroyBoxes);
+
+//==========================================================
+// const inputNumber = document.querySelector('#controls>input');
+// const buttonCreate = document.querySelector('[data-create]');
+// const buttonDestroy = document.querySelector('[data-destroy]');
+// const boxes = document.querySelector('#boxes');
+
+// const initialBoxSize = 30; //square width=30px height=30px
+// let numberOfBoxes = 0;
+
+// inputNumber.addEventListener('input', getInputValue);
+// buttonCreate.addEventListener('click', () => {
+//   createBoxes(numberOfBoxes);
+// });
+// buttonDestroy.addEventListener('click', destroyBoxes);
+
+// function getInputValue(e) {
+//   numberOfBoxes = Number(e.currentTarget.value);
+// }
+
+// function createBoxes(amount) {
+//   let newBox = '';
+//   for (let i = 1; i <= amount; i += 1) {
+//     let boxSize = initialBoxSize * i;
+//     const bgColor = getRandomHexColor();
+//     newBox += `<div style="width: ${boxSize}px; height: ${boxSize}px; background-color: ${bgColor}"></div>`;
+//   }
+//   boxes.insertAdjacentHTML('beforeend', newBox);
+// }
+
+// function destroyBoxes() {
+//   boxes.innerHTML = '';
+// }
+
+// function getRandomHexColor() {
+//   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+// }
